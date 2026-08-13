@@ -8,15 +8,41 @@ A merged pull request does not always mean your current local branch contains no
 
 ## Install
 
-```bash
-go install github.com/kunmi02/git-declutter@latest
-```
+GitDeclutter is a compiled binary. You need **Git** to run it. You do **not** need Go after it is installed.
 
-After installation, Git exposes the binary as a subcommand:
+Put `git-declutter` on your `PATH`. Git then exposes it as a subcommand:
 
 ```bash
 git declutter scan
 ```
+
+### With Go
+
+Requires [Go](https://go.dev/dl/) 1.25+:
+
+```bash
+go install github.com/kunmi02/git-declutter@latest
+```
+
+`GOBIN` (or `$(go env GOPATH)/bin`) must be on your `PATH`. Without Go, this command fails with `command not found: go`.
+
+### Without Go
+
+Download a prebuilt archive for your OS and CPU from [GitHub Releases](https://github.com/kunmi02/git-declutter/releases), then put `git-declutter` on your `PATH`.
+
+macOS / Linux:
+
+```bash
+tar -xzf git-declutter_*_darwin_arm64.tar.gz   # or linux_amd64, darwin_amd64, …
+sudo mv git-declutter /usr/local/bin/
+git declutter version
+```
+
+Windows: unzip `git-declutter_*_windows_amd64.zip` and add `git-declutter.exe` to `PATH`.
+
+Homebrew will be the long-term primary install (`brew install git-declutter`). It is not available yet.
+
+Until a `v*` tag has been pushed, Releases will be empty and `go install` is the only path.
 
 ## Example
 
@@ -148,4 +174,24 @@ Provider APIs are contacted only to fetch repository metadata (owner, name, bran
 ```bash
 make test
 make build
+make dist        # cross-compile into ./dist (needs Go)
+```
+
+### Cut a GitHub Release
+
+Pushing a version tag publishes macOS, Linux, and Windows binaries via GoReleaser (see `.github/workflows/release.yml`).
+
+```bash
+git checkout main
+git pull
+git tag v0.1.0
+git push origin v0.1.0
+```
+
+`git declutter version` in those binaries reports the tag (for example `0.1.0`). Local `make build` without a tag reports `0.1.0-dev`.
+
+Dry-run without publishing (needs [GoReleaser](https://goreleaser.com)):
+
+```bash
+make snapshot
 ```
