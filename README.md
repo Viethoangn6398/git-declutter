@@ -16,6 +16,8 @@ Put `git-declutter` on your `PATH`. Git then exposes it as a subcommand:
 git declutter scan
 ```
 
+
+
 ### With Go
 
 Requires [Go](https://go.dev/dl/) 1.25+:
@@ -84,20 +86,26 @@ PROTECTED                                         3
 12 safe · 3 review · 4 keep · 3 protected
 ```
 
+
+
 ## Commands
 
-| Command | Purpose |
-| --- | --- |
-| `git declutter scan` | Analyze local branches. Never deletes anything. |
-| `git declutter why <branch>` | Explain one branch's classification. |
-| `git declutter clean` | Interactively remove SAFE branches (recoverable). |
-| `git declutter clean --dry-run` | Preview cleanup with no changes. |
-| `git declutter clean --safe-only --yes` | Non-interactive SAFE cleanup. |
-| `git declutter clean --permanent` | Delete without GitDeclutter recovery refs. |
-| `git declutter restore <branch>` | Restore a recoverable branch. |
-| `git declutter history` | List recoverable deletions. |
-| `git declutter gc` | Expire recovery refs past retention. |
-| `git declutter config` | View or change configuration. |
+
+| Command                                 | Purpose                                           |
+| --------------------------------------- | ------------------------------------------------- |
+| `git declutter scan`                    | Analyze local branches. Never deletes anything.   |
+| `git declutter why <branch>`            | Explain one branch's classification.              |
+| `git declutter clean`                   | Interactively remove SAFE branches (recoverable). |
+| `git declutter clean --dry-run`         | Preview cleanup with no changes.                  |
+| `git declutter clean --safe-only --yes` | Non-interactive SAFE cleanup.                     |
+| `git declutter clean --permanent`       | Delete without GitDeclutter recovery refs.        |
+| `git declutter restore <branch>`        | Restore a recoverable branch.                     |
+| `git declutter history`                 | List recoverable deletions.                       |
+| `git declutter gc`                      | Expire recovery refs past retention.              |
+| `git declutter config`                  | View or change configuration.                     |
+
+
+
 
 ### Scan flags
 
@@ -112,12 +120,14 @@ git declutter scan --branch feature/foo
 
 ## Safety model
 
-| Status | Meaning |
-| --- | --- |
-| **SAFE** | Strong evidence that deleting the local branch will not lose unique work. Eligible for automatic cleanup. |
-| **REVIEW** | Stale-looking, but evidence is incomplete. Never selected automatically. |
-| **KEEP** | Evidence of active or unique work. Never automatically deleted. |
-| **PROTECTED** | Current branch, default branch, worktree branch, or a configured pattern. |
+
+| Status        | Meaning                                                                                                   |
+| ------------- | --------------------------------------------------------------------------------------------------------- |
+| **SAFE**      | Strong evidence that deleting the local branch will not lose unique work. Eligible for automatic cleanup. |
+| **REVIEW**    | Stale-looking, but evidence is incomplete. Never selected automatically.                                  |
+| **KEEP**      | Evidence of active or unique work. Never automatically deleted.                                           |
+| **PROTECTED** | Current branch, default branch, worktree branch, or a configured pattern.                                 |
+
 
 False negatives are acceptable. False positives are not. If GitDeclutter is uncertain, it will not recommend automatic deletion.
 
@@ -139,6 +149,8 @@ git declutter config set recovery.retention 30d
 git declutter config set recovery.retention 90d
 git declutter config set recovery.retention forever
 ```
+
+
 
 ## Configuration
 
@@ -177,6 +189,8 @@ make build
 make dist        # cross-compile into ./dist (needs Go)
 ```
 
+
+
 ### Cut a GitHub Release
 
 Pushing a version tag publishes macOS, Linux, and Windows binaries via GoReleaser (see `.github/workflows/release.yml`).
@@ -195,3 +209,4 @@ Dry-run without publishing (needs [GoReleaser](https://goreleaser.com)):
 ```bash
 make snapshot
 ```
+
