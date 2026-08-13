@@ -1,0 +1,19 @@
+# Binaries
+/git-declutter
+/git-declutter.exe
+/git-declutter-*
+
+# Tests / coverage
+/coverage.out
+/coverage.html
+
+# Editor / OS
+.DS_Store
+.idea/
+.vscode/
+*.swp
+
+# Go
+/vendor/
+
+prd.md
